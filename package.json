@@ -1,0 +1,22 @@
+{
+  "name": "apifactory",
+  "version": "1.0.0",
+  "description": "api factory",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeeJinHyuk/ApiFactory.git"
+  },
+  "author": "LeeJinHyuk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LeeJinHyuk/ApiFactory/issues"
+  },
+  "homepage": "https://github.com/LeeJinHyuk/ApiFactory#readme",
+  "dependencies": {
+    "request": "^2.81.0"
+  }
+}
