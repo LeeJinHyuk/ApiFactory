@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/LeeJinHyuk/ApiFactory#readme",
   "dependencies": {
-    "request": "^2.81.0"
+    "request": "^2.81.0",
+    "xml2js": "^0.4.18"
   }
 }
