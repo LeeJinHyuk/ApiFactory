@@ -2,21 +2,25 @@ const request = require("request");
 const xml2js = require('xml2js');
 
 exports.handler = (_event, _context, _callback) => {
-    let url = "http://openapi.youth.go.kr/openapi/service/YouthActivInfoCertiSrvc/";
+    let url = "http://openapi.youth.go.kr/openapi/service/";
     let key = "HF1eUr96KfQkuZe3Pl1v0stWJvCU8eH72E%2BPGfe%2BiUOMDUlk0P1%2FMgO4SpXf0qq74hzOF7ctuBDJl2L7aXXOsw%3D%3D";
     let path = _event.params.path;
     let apiPath = path.method;
     let options = {
-        url : url + apiPath + "?serviceKey=" + key + "&numOfRows=10",
+        url : url,
         method : "GET",
         timeout : 10 * 1000
     };
 
     switch(apiPath) {
         case "getCertiProgrmList" :
+            options.url = options.url + "YouthActivInfoCertiSrvc/" + apiPath + "?serviceKey=" + key + "&numOfRows=" + path.count; 
+            break;
         case "getVolProgrmList" :
+            options.url = options.url + "YouthActivInfoVolSrvc/" + apiPath + "?serviceKey=" + key + "&numOfRows=" + path.count; 
+            break;
         case "getYngbgsIntrlExchgProgrmList" :
-            options.url = options.url + "&numOfRows=" + path.count;
+            options.url = options.url + "IntrlExchgProgrmInfoSrvc/" + apiPath + "?serviceKey=" + key + "&numOfRows=" + path.count; 
             break;
     }
 
