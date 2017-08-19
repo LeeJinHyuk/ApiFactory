@@ -27,16 +27,12 @@ exports.handler = (_event, _context, _callback) => {
     request(options, (_reqError, _response, _body) => {
         let statusCode = _response.statusCode;
         let parser = new xml2js.Parser();
-        let result = {
-            statusCode : statusCode
-        };
+        let result = {};
 
         if (statusCode === 200) {
             parser.parseString(_body, (_parserErr, _result) => {
-                result.data = _result;
+                result = _result;
             });
-        } else {
-            result.data = {};
         }
 
         _callback(null, result);
