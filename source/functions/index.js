@@ -9,8 +9,10 @@ exports.handler = (_event, _context, _callback) => {
     let options = {
         url : url,
         method : "GET",
-        timeout : 10 * 1000
+        timeout : 20 * 1000
     };
+    
+    _context.callbackWaitsForEmptyEventLoop = false;
 
     switch(apiPath) {
         case "getCertiProgrmList" :
@@ -20,7 +22,7 @@ exports.handler = (_event, _context, _callback) => {
             options.url = options.url + "YouthActivInfoVolSrvc/" + apiPath + "?serviceKey=" + key + "&numOfRows=" + path.count; 
             break;
         case "getYngbgsIntrlExchgProgrmList" :
-            options.url = options.url + "IntrlExchgProgrmInfoSrvc/" + apiPath + "?serviceKey=" + key + "&numOfRows=" + path.count; 
+            options.url = options.url + "IntrlExchgProgrmInfoSrvc/" + apiPath + "?serviceKey=" + key + "&numOfRows=" + path.count + "&status=1"; 
             break;
     }
 
