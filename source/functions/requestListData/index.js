@@ -38,8 +38,6 @@ exports.handler = (_event, _context, _callback) => {
                 let body = _result.response.body[0];
                 let item = body.items[0].item;
 
-                result = _result;
-
                 result = {
                     resultCode : header.resultCode[0],
                     resultMsg : header.resultMsg[0],
