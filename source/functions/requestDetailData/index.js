@@ -11,15 +11,18 @@ exports.handler = (_event, _context, _callback) => {
         method : "GET",
         timeout : 20 * 1000
     };
-    
+
     _context.callbackWaitsForEmptyEventLoop = false;
 
     switch(apiPath) {
         case "getCertiProgrmInfo" :
             options.url = options.url + "YouthActivInfoCertiSrvc/" + apiPath + "?serviceKey=" + key + "&key1=" + path.key; 
             break;
+        case "getVolProgrmInfo" :
+            options.url = options.url + "YouthActivInfoVolSrvc/" + apiPath + "?serviceKey=" + key + "&key1=" + path.key;
+            break;
     }
-    
+
     request(options, (_reqError, _response, _body) => {
         let statusCode = _response.statusCode;
         let parser = new xml2js.Parser();
