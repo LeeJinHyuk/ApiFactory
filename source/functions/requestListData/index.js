@@ -17,13 +17,13 @@ exports.handler = (_event, _context, _callback) => {
 
     switch(apiPath) {
         case "getCertiProgrmList" :
-            options.url = options.url + "YouthActivInfoCertiSrvc/" + apiPath + "?serviceKey=" + key + "&numOfRows=" + path.count + "&pageNo=" + pageNo; 
+            options.url = options.url + "YouthActivInfoCertiSrvc/" + apiPath + "?serviceKey=" + key + "&numOfRows=10&pageNo=" + pageNo; 
             break;
         case "getVolProgrmList" :
-            options.url = options.url + "YouthActivInfoVolSrvc/" + apiPath + "?serviceKey=" + key + "&numOfRows=" + path.count + "&pageNo=" + pageNo; 
+            options.url = options.url + "YouthActivInfoVolSrvc/" + apiPath + "?serviceKey=" + key + "&numOfRows=10&pageNo=" + pageNo; 
             break;
         case "getYngbgsIntrlExchgProgrmList" :
-            options.url = options.url + "IntrlExchgProgrmInfoSrvc/" + apiPath + "?serviceKey=" + key + "&numOfRows=" + path.count + "&status=1" + "&pageNo=" + pageNo; 
+            options.url = options.url + "IntrlExchgProgrmInfoSrvc/" + apiPath + "?serviceKey=" + key + "&numOfRows=10&status=1" + "&pageNo=" + pageNo; 
             break;
     }
 
@@ -47,52 +47,54 @@ exports.handler = (_event, _context, _callback) => {
                     data : []
                 };
 
-                switch(apiPath) {
-                    case "getCertiProgrmList" :
-                        item.map((_item, _idx) => {
-                            result.data.push(
-                                {
-                                    key1 : _item.key1 ? _item.key1[0] : "",
-                                    key2 : _item.key2 ? _item.key2[0] : "",
-                                    nums : _item.nums ? _item.nums[0] : "",
-                                    orgnNm : _item.orgnNm ? _item.orgnNm[0] : "",
-                                    pgmNm : _item.pgmNm ? _item.pgmNm[0] : "",
-                                    price : _item.price ? _item.price[0] : "",
-                                    target : _item.target ? _item.target[0] : "",
-                                    sdate : _item.sdate ? _item.sdate[0] : ""
-                                }
-                            );
-                        });
-                        break;
-                    case "getVolProgrmList" :
-                        item.map((_item, _idx) => {
-                            result.data.push(
-                                {
-                                    key1 : _item.key1 ? _item.key1[0] : "",
-                                    nums : _item.nums ? _item.nums[0] : "",
-                                    orgnNm : _item.orgnNm ? _item.orgnNm[0] : "",
-                                    pgmNm : _item.pgmNm ? _item.pgmNm[0] : "",
-                                    price : _item.price ? _item.price[0] : "",
-                                    target : _item.target ? _item.target[0] : "",
-                                    sdate : _item.sdate ? _item.sdate[0] : ""
-                                }
-                            );
-                        });
-                        break;
-                    case "getYngbgsIntrlExchgProgrmList" :
-                        item.map((_item, _idx) => {
-                            result.data.push(
-                                {
-                                    arName : _item.arName ? _item.arName[0] : "",
-                                    arStartDate : _item.arStartDate ? _item.arStartDate[0] : "",
-                                    arEndDate : _item.arEndDate ? _item.arEndDate[0] : "",
-                                    arContent : _item.arContent ? _item.arContent[0] : "",
-                                    arYear : _item.arYear ? _item.arYear[0] : "",
-                                    arStatus : _item.arStatus ? _item.arStatus[0] : ""
-                                }
-                            );
-                        });
-                        break;
+                if (item) {
+                    switch(apiPath) {
+                        case "getCertiProgrmList" :
+                            item.map((_item, _idx) => {
+                                result.data.push(
+                                    {
+                                        key1 : _item.key1 ? _item.key1[0] : "",
+                                        key2 : _item.key2 ? _item.key2[0] : "",
+                                        nums : _item.nums ? _item.nums[0] : "",
+                                        orgnNm : _item.orgnNm ? _item.orgnNm[0] : "",
+                                        pgmNm : _item.pgmNm ? _item.pgmNm[0] : "",
+                                        price : _item.price ? _item.price[0] : "",
+                                        target : _item.target ? _item.target[0] : "",
+                                        sdate : _item.sdate ? _item.sdate[0] : ""
+                                    }
+                                );
+                            });
+                            break;
+                        case "getVolProgrmList" :
+                            item.map((_item, _idx) => {
+                                result.data.push(
+                                    {
+                                        key1 : _item.key1 ? _item.key1[0] : "",
+                                        nums : _item.nums ? _item.nums[0] : "",
+                                        orgnNm : _item.orgnNm ? _item.orgnNm[0] : "",
+                                        pgmNm : _item.pgmNm ? _item.pgmNm[0] : "",
+                                        price : _item.price ? _item.price[0] : "",
+                                        target : _item.target ? _item.target[0] : "",
+                                        sdate : _item.sdate ? _item.sdate[0] : ""
+                                    }
+                                );
+                            });
+                            break;
+                        case "getYngbgsIntrlExchgProgrmList" :
+                            item.map((_item, _idx) => {
+                                result.data.push(
+                                    {
+                                        arName : _item.arName ? _item.arName[0] : "",
+                                        arStartDate : _item.arStartDate ? _item.arStartDate[0] : "",
+                                        arEndDate : _item.arEndDate ? _item.arEndDate[0] : "",
+                                        arContent : _item.arContent ? _item.arContent[0] : "",
+                                        arYear : _item.arYear ? _item.arYear[0] : "",
+                                        arStatus : _item.arStatus ? _item.arStatus[0] : ""
+                                    }
+                                );
+                            });
+                            break;
+                    }   
                 }
             });
         }
