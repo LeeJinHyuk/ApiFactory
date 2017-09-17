@@ -56,7 +56,7 @@ exports.handler = (_event, _context, _callback) => {
                                         key1 : _item.key1 ? _item.key1[0] : "",
                                         key2 : _item.key2 ? _item.key2[0] : "",
                                         nums : _item.nums ? _item.nums[0] : "",
-                                        orgnNm : _item.orgnNm ? _item.orgnNm[0] : "",
+                                        organNm : _item.organNm ? _item.organNm[0] : "",
                                         pgmNm : _item.pgmNm ? _item.pgmNm[0] : "",
                                         price : _item.price ? _item.price[0] : "",
                                         target : _item.target ? _item.target[0] : "",
@@ -71,7 +71,7 @@ exports.handler = (_event, _context, _callback) => {
                                     {
                                         key1 : _item.key1 ? _item.key1[0] : "",
                                         nums : _item.nums ? _item.nums[0] : "",
-                                        orgnNm : _item.orgnNm ? _item.orgnNm[0] : "",
+                                        organNm : _item.organNm ? _item.organNm[0] : "",
                                         pgmNm : _item.pgmNm ? _item.pgmNm[0] : "",
                                         price : _item.price ? _item.price[0] : "",
                                         target : _item.target ? _item.target[0] : "",
